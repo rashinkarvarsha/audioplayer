@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="wavesurfer.js"></script>
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style type="text/css">
+
+        .audio-border{
+              border: 1px solid black;
+              margin-top: 100px;
+              margin-bottom: 100px;
+              margin-right: auto;
+              margin-left: auto;
+                    }
+        #waveform{
+             margin-top: 50px;
+             margin-bottom: 50px;
+        }
+
+        .btn2{
+            border-radius: 30px;
+            width: 100px;
+            height: 60px;
+            color: aquamarine;
+            border: 2px solid aquamarine;
+        }
+        .btn1{
+            border-radius: 30px;
+            width: 60px;
+            height: 40px;
+            color: aquamarine;
+            border: 2px solid aquamarine;
+        }
+        .btn3{
+            border-radius: 30px;
+            width: 60px;
+            height: 40px;
+            color: aquamarine;
+            border: 2px solid aquamarine;
+        }
+
+</style>
+
+</head>
+
+<body>
+  
+<div class="audio-border">    
+ <center>
+    <h1>Audio Player</h1>
+        <div id="waveform"></div>
+   <button class="btn btn-primary btn1">
+            <i class="fa fa-fast-backward" style="font-size:26px;"></i>
+        </button>
+        <button class="btn btn-primary btn2" onclick="wavesurfer.playPause()">
+            <i class="fa fa-play" style="font-size:32px;"></i><i class="fa fa-pause" style="font-size:36px;"></i>
+        </button>
+          <button class="btn btn-primary btn3">
+            <i class="fa fa-fast-forward" style="font-size:26px;"></i>
+        </button>
+    </center>
+</div>
+   
+
+    <script>
+        var wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: 'grey',
+            progressColor: 'red',
+            barWidth: 6,
+            barHeight: 10,
+            barGap: null
+        });
+
+        wavesurfer.on('ready', function () {
+            wavesurfer.play();
+        });
+
+        wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
+    </script>
+</body>
+
+</html>
